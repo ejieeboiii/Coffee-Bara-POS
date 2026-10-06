@@ -1,0 +1,19 @@
+/* This presentation applies only to Welcome; existing order screens stay intact. */
+.welcome-mode { background: var(--cream); }
+.welcome-mode .sidebar, .welcome-mode .topbar { display: none; }
+.welcome-mode #app { margin: 0; padding: 0; }
+.welcome { min-height: 100svh; display: grid; place-items: center; padding: 28px 24px 36px; }
+.welcome-content { width: 100%; max-width: 960px; text-align: center; }
+.welcome-logo { display: block; height: 124px; width: auto; max-width: 100%; object-fit: contain; margin: 0 auto 18px; }
+.welcome h1 { margin: 0 auto 12px; max-width: 780px; font-size: clamp(2rem, 4vw, 3.25rem); line-height: 1.12; letter-spacing: -.035em; }
+.welcome-message { margin: 0 0 24px; color: var(--muted); font-size: clamp(1rem, 1.6vw, 1.2rem); }
+.welcome-hero { width: 100%; height: clamp(220px, 34vh, 380px); overflow: hidden; border-radius: 28px; background: #f3e6d6; margin-bottom: 28px; }
+.welcome-hero img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.welcome .welcome-start { width: min(100%, 440px); min-height: 78px; font-size: 1.4rem; display: inline-flex; align-items: center; justify-content: center; gap: 24px; box-shadow: 0 8px 20px rgba(110, 75, 47, .14); }
+.welcome-start span { font-size: 1.7rem; }
+@media (max-width: 600px) {
+  .welcome { padding: 24px 20px; }
+  .welcome-logo { height: 104px; margin-bottom: 20px; }
+  .welcome-hero { height: 240px; border-radius: 20px; }
+  .welcome .welcome-start { min-height: 72px; }
+}

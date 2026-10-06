@@ -1,0 +1,7 @@
+.methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 20px 0; }
+.method { min-height: 190px; border-radius: var(--radius); border: 3px solid var(--line); background: #fff; font-size: 1.3rem; font-weight: 700; color: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.method img { display: block; width: 120px; height: 120px; object-fit: contain; flex-shrink: 0; }
+.method { transition: border-color .15s ease, background-color .15s ease; }
+.method:hover { border-color: var(--accent); background: var(--surface); }
+.method:active { border-color: var(--primary); background: var(--cream); }
+@media (max-width: 900px) { .methods { grid-template-columns: 1fr; } .method { min-height: 110px; flex-direction: row; } .method img { width: 84px; height: 84px; } }

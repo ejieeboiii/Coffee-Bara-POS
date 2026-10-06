@@ -1,0 +1,5 @@
+Tool: built-in imagegen, transparent_background: true
+Input: public/assets/images/campus-cafe-logo.png
+Output: public/assets/images/campus-cafe-logo-transparent.png
+
+Perform exact background removal on this image. Keep the original 1172x1342 canvas, original placement, original scale, all original clear margins, all logo pixels and exact 'Campus Cafe' lettering. Do NOT enlarge the logo or reframe it. Remove pale mint background only, making it alpha=0 everywhere including holes in the cup, book and text. Retain brown and tan artwork exactly, no redraw. Clean anti-aliased edges, no mint, yellow or red fringes, no new outlines. Preserve at least the original bottom margin below the full wordmark and all descenders; do not clip anything. Output transparent PNG, not black or white background.

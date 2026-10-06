@@ -1,0 +1,23 @@
+<div class="layout">
+  <div class="menu-content">
+    <div class="menu-heading"><div><p class="eyebrow">FRESHLY MADE FOR YOU</p><h2>Choose your items</h2></div></div>
+    <div class="menu-tools">
+      <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" data-menu-search placeholder="Search menu items" aria-label="Search menu items"></label>
+      <div class="category-list" role="group" aria-label="Filter menu by category">
+        <button class="category-chip active" type="button" data-category="all" aria-pressed="true">All items</button>
+        <button class="category-chip" type="button" data-category="drinks" aria-pressed="false">Drinks</button>
+        <button class="category-chip" type="button" data-category="food" aria-pressed="false">Food</button>
+        <button class="category-chip" type="button" data-category="sides" aria-pressed="false">Sides</button>
+      </div>
+    </div>
+    <div id="product-grid" class="grid"></div>
+    <p class="empty-results" data-empty-results hidden>No menu items match your search.</p>
+  </div>
+  <aside class="panel">
+    <div class="cart-heading"><div><p class="eyebrow">YOUR SELECTION</p><h2>Your order</h2></div><span class="cart-badge" aria-hidden="true">✓</span></div>
+    <p id="cart-empty" class="muted">Your order is empty. Tap an item to add it.</p>
+    <ul id="cart-list" class="cart-list"></ul>
+    <div class="total-row"><span>Total</span><strong id="cart-total">₱0.00</strong></div>
+    <button class="btn primary" data-action="review">Review Order</button>
+  </aside>
+</div>

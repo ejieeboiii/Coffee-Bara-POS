@@ -1,0 +1,2 @@
+.card-instruction { font-size: 1.5rem; padding: 32px 0; }
+.card-instruction.processing { color: var(--primary); font-weight: 700; }

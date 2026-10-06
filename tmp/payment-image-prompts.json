@@ -1,0 +1,20 @@
+{
+  "tool": "built-in imagegen",
+  "images": [
+    {
+      "file": "cash",
+      "subject": "a small fan of recognizable Philippine peso banknotes, clearly blue 1000-peso, yellow 500-peso, violet 100-peso and orange 20-peso bills, photographed at a slight three-quarter angle; indicative peso designs, visible denomination numerals, no invented country currency, no coins required",
+      "prompt": "Use case: product-mockup. Create a single photorealistic payment-method thumbnail: a small fan of recognizable Philippine peso banknotes, clearly blue 1000-peso, yellow 500-peso, violet 100-peso and orange 20-peso bills, photographed at a slight three-quarter angle; indicative peso designs, visible denomination numerals, no invented country currency, no coins required. Commercial studio photography, realistic material textures and soft lighting. Coffee Bara warm neutral brown, cream and gray presentation. Objects fully visible, centered in a square composition with generous 12% margins. Clean TRUE transparent RGBA background, no scene, no table, no rectangular background, no glow or external drop shadow. Not an emoji, not an illustration. Image used in a touchscreen POS payment option. No surrounding labels, no extra lettering beyond necessary currency denominations or QR pattern, no watermark."
+    },
+    {
+      "file": "qr-payment",
+      "subject": "a realistic modern smartphone scanning a black-and-white QR payment code on a small upright merchant counter placard; phone camera screen visibly frames the same QR code with four small scan brackets; no calculator, no brand logos or app names; illustrative nonfunctional QR pattern, not a real payment destination",
+      "prompt": "Use case: product-mockup. Create a single photorealistic payment-method thumbnail: a realistic modern smartphone scanning a black-and-white QR payment code on a small upright merchant counter placard; phone camera screen visibly frames the same QR code with four small scan brackets; no calculator, no brand logos or app names; illustrative nonfunctional QR pattern, not a real payment destination. Commercial studio photography, realistic material textures and soft lighting. Coffee Bara warm neutral brown, cream and gray presentation. Objects fully visible, centered in a square composition with generous 12% margins. Clean TRUE transparent RGBA background, no scene, no table, no rectangular background, no glow or external drop shadow. Not an emoji, not an illustration. Image used in a touchscreen POS payment option. No surrounding labels, no extra lettering beyond necessary currency denominations or QR pattern, no watermark."
+    },
+    {
+      "file": "card-payment",
+      "subject": "a realistic cream and gray POS card reader terminal with screen and keypad, plus a plain tan bank card hovering beside the contactless reader; visible chip and small contactless symbol; card has absolutely no number, no name, no bank logo, no account details",
+      "prompt": "Use case: product-mockup. Create a single photorealistic payment-method thumbnail: a realistic cream and gray POS card reader terminal with screen and keypad, plus a plain tan bank card hovering beside the contactless reader; visible chip and small contactless symbol; card has absolutely no number, no name, no bank logo, no account details. Commercial studio photography, realistic material textures and soft lighting. Coffee Bara warm neutral brown, cream and gray presentation. Objects fully visible, centered in a square composition with generous 12% margins. Clean TRUE transparent RGBA background, no scene, no table, no rectangular background, no glow or external drop shadow. Not an emoji, not an illustration. Image used in a touchscreen POS payment option. No surrounding labels, no extra lettering beyond necessary currency denominations or QR pattern, no watermark."
+    }
+  ]
+}

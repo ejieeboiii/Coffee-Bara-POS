@@ -1,0 +1,14 @@
+{
+  "tool": "built-in imagegen",
+  "reference": "User-supplied Coffee Bara brand reference image",
+  "assets": [
+    {
+      "file": "public/assets/images/coffee-bara-logo.png",
+      "prompt": "Use case: precise-object-edit / background-extraction. Input: supplied Coffee Bara brand reference board. Extract ONLY the PRIMARY LOGO from the top-left panel: the original warm tan capybara holding a white coffee cup, in a thin coffee-brown circle with cream interior and subtle steam, and the exact bold rounded wordmark 'Coffee Bara' centered underneath. Preserve the reference's capybara identity, original shape, colors and lettering. Do not invent a new mascot, no owl, no new branding. Remove all board panels, captions, numbers, headings and pale-blue rectangular background. Outside the circular logo and letters must be truly transparent RGBA, retain cream disk inside circle and white cup. Produce one clean sharp high-resolution logo asset, complete circle and wordmark fully within frame, 8% clear transparent margin, square composition. No shadows, no additional text, no other board elements, no background or painted checkerboard."
+    },
+    {
+      "file": "public/assets/images/coffee-bara-icon.png",
+      "prompt": "Use case: precise-object-edit. Edit target: supplied Coffee Bara logo. Make the ICON-ONLY version by removing the 'Coffee Bara' wordmark beneath the circle. Keep the circular capybara-and-coffee emblem exactly the same: same face, tan colors, white mug, steam, thin brown ring, cream interior. Do not redraw, add, or change the mascot. Center the entire circle in a square canvas, about 8% transparent clear space all around. True transparent RGBA outside circle; preserve cream interior. No lettering, no other elements, no clipping, no shadows."
+    }
+  ]
+}
