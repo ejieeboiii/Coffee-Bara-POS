@@ -91,6 +91,7 @@ function renderProducts() {
 
 function renderCart() {
   const items = lines();
+  $('screen-select').querySelector('[data-action="review"]').disabled = state.cart.length === 0;
   $('cart-empty').style.display = items.length ? 'none' : 'block';
   $('cart-list').innerHTML = items.map((l) => `
     <li class="cart-item">
