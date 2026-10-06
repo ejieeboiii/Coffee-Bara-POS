@@ -1,0 +1,452 @@
+[
+  {
+    "name": "Burger",
+    "price": 60,
+    "icon": "🍔",
+    "category": "food"
+  },
+  {
+    "name": "Sandwich",
+    "price": 50,
+    "icon": "🥪",
+    "category": "food"
+  },
+  {
+    "name": "Cheeseburger",
+    "price": 75,
+    "icon": "🍔",
+    "category": "food"
+  },
+  {
+    "name": "Chicken Burger",
+    "price": 70,
+    "icon": "🍔",
+    "category": "food"
+  },
+  {
+    "name": "Double Cheeseburger",
+    "price": 110,
+    "icon": "🍔",
+    "category": "food"
+  },
+  {
+    "name": "Bacon Burger",
+    "price": 95,
+    "icon": "🍔",
+    "category": "food"
+  },
+  {
+    "name": "Egg Sandwich",
+    "price": 45,
+    "icon": "🥪",
+    "category": "food"
+  },
+  {
+    "name": "Tuna Sandwich",
+    "price": 65,
+    "icon": "🥪",
+    "category": "food"
+  },
+  {
+    "name": "Chicken Sandwich",
+    "price": 65,
+    "icon": "🥪",
+    "category": "food"
+  },
+  {
+    "name": "Ham and Cheese Sandwich",
+    "price": 60,
+    "icon": "🥪",
+    "category": "food"
+  },
+  {
+    "name": "Grilled Cheese",
+    "price": 55,
+    "icon": "🥪",
+    "category": "food"
+  },
+  {
+    "name": "Club Sandwich",
+    "price": 90,
+    "icon": "🥪",
+    "category": "food"
+  },
+  {
+    "name": "Hotdog Sandwich",
+    "price": 50,
+    "icon": "🌭",
+    "category": "food"
+  },
+  {
+    "name": "Chicken Wrap",
+    "price": 75,
+    "icon": "🌯",
+    "category": "food"
+  },
+  {
+    "name": "Tuna Wrap",
+    "price": 70,
+    "icon": "🌯",
+    "category": "food"
+  },
+  {
+    "name": "Vegetable Wrap",
+    "price": 60,
+    "icon": "🌯",
+    "category": "food"
+  },
+  {
+    "name": "Spaghetti",
+    "price": 75,
+    "icon": "🍝",
+    "category": "food"
+  },
+  {
+    "name": "Carbonara",
+    "price": 85,
+    "icon": "🍝",
+    "category": "food"
+  },
+  {
+    "name": "Baked Macaroni",
+    "price": 80,
+    "icon": "🍝",
+    "category": "food"
+  },
+  {
+    "name": "Chicken Rice Bowl",
+    "price": 90,
+    "icon": "🍚",
+    "category": "food"
+  },
+  {
+    "name": "Pork Adobo Rice Bowl",
+    "price": 95,
+    "icon": "🍚",
+    "category": "food"
+  },
+  {
+    "name": "Beef Tapa Rice Bowl",
+    "price": 110,
+    "icon": "🍚",
+    "category": "food"
+  },
+  {
+    "name": "Fried Chicken Meal",
+    "price": 100,
+    "icon": "🍗",
+    "category": "food"
+  },
+  {
+    "name": "Tocino Rice Meal",
+    "price": 85,
+    "icon": "🍚",
+    "category": "food"
+  },
+  {
+    "name": "Vegetable Fried Rice",
+    "price": 65,
+    "icon": "🍚",
+    "category": "food"
+  },
+  {
+    "name": "Iced Coffee",
+    "price": 45,
+    "icon": "🧋",
+    "category": "drinks"
+  },
+  {
+    "name": "Soft Drink",
+    "price": 35,
+    "icon": "🥤",
+    "category": "drinks"
+  },
+  {
+    "name": "Bottled Water",
+    "price": 20,
+    "icon": "💧",
+    "category": "drinks"
+  },
+  {
+    "name": "Hot Brewed Coffee",
+    "price": 35,
+    "icon": "☕",
+    "category": "drinks"
+  },
+  {
+    "name": "Americano",
+    "price": 45,
+    "icon": "☕",
+    "category": "drinks"
+  },
+  {
+    "name": "Iced Americano",
+    "price": 50,
+    "icon": "🧊",
+    "category": "drinks"
+  },
+  {
+    "name": "Cafe Latte",
+    "price": 60,
+    "icon": "☕",
+    "category": "drinks"
+  },
+  {
+    "name": "Iced Latte",
+    "price": 65,
+    "icon": "🧋",
+    "category": "drinks"
+  },
+  {
+    "name": "Cappuccino",
+    "price": 60,
+    "icon": "☕",
+    "category": "drinks"
+  },
+  {
+    "name": "Cafe Mocha",
+    "price": 70,
+    "icon": "☕",
+    "category": "drinks"
+  },
+  {
+    "name": "Iced Mocha",
+    "price": 75,
+    "icon": "🧋",
+    "category": "drinks"
+  },
+  {
+    "name": "Caramel Latte",
+    "price": 75,
+    "icon": "☕",
+    "category": "drinks"
+  },
+  {
+    "name": "Vanilla Latte",
+    "price": 70,
+    "icon": "☕",
+    "category": "drinks"
+  },
+  {
+    "name": "Spanish Latte",
+    "price": 75,
+    "icon": "🧋",
+    "category": "drinks"
+  },
+  {
+    "name": "Matcha Latte",
+    "price": 75,
+    "icon": "🍵",
+    "category": "drinks"
+  },
+  {
+    "name": "Iced Matcha Latte",
+    "price": 80,
+    "icon": "🍵",
+    "category": "drinks"
+  },
+  {
+    "name": "Hot Chocolate",
+    "price": 50,
+    "icon": "☕",
+    "category": "drinks"
+  },
+  {
+    "name": "Iced Chocolate",
+    "price": 55,
+    "icon": "🥤",
+    "category": "drinks"
+  },
+  {
+    "name": "Classic Milk Tea",
+    "price": 65,
+    "icon": "🧋",
+    "category": "drinks"
+  },
+  {
+    "name": "Wintermelon Milk Tea",
+    "price": 70,
+    "icon": "🧋",
+    "category": "drinks"
+  },
+  {
+    "name": "Lemon Iced Tea",
+    "price": 40,
+    "icon": "🍋",
+    "category": "drinks"
+  },
+  {
+    "name": "Lemonade",
+    "price": 45,
+    "icon": "🍋",
+    "category": "drinks"
+  },
+  {
+    "name": "Calamansi Juice",
+    "price": 35,
+    "icon": "🥤",
+    "category": "drinks"
+  },
+  {
+    "name": "Mango Juice",
+    "price": 45,
+    "icon": "🥭",
+    "category": "drinks"
+  },
+  {
+    "name": "Orange Juice",
+    "price": 45,
+    "icon": "🍊",
+    "category": "drinks"
+  },
+  {
+    "name": "Fries",
+    "price": 35,
+    "icon": "🍟",
+    "category": "sides"
+  },
+  {
+    "name": "Cheese Fries",
+    "price": 45,
+    "icon": "🍟",
+    "category": "sides"
+  },
+  {
+    "name": "BBQ Fries",
+    "price": 45,
+    "icon": "🍟",
+    "category": "sides"
+  },
+  {
+    "name": "Sour Cream Fries",
+    "price": 45,
+    "icon": "🍟",
+    "category": "sides"
+  },
+  {
+    "name": "Loaded Fries",
+    "price": 65,
+    "icon": "🍟",
+    "category": "sides"
+  },
+  {
+    "name": "Potato Wedges",
+    "price": 50,
+    "icon": "🥔",
+    "category": "sides"
+  },
+  {
+    "name": "Hash Brown",
+    "price": 30,
+    "icon": "🥔",
+    "category": "sides"
+  },
+  {
+    "name": "Onion Rings",
+    "price": 45,
+    "icon": "🧅",
+    "category": "sides"
+  },
+  {
+    "name": "Chicken Nuggets",
+    "price": 55,
+    "icon": "🍗",
+    "category": "sides"
+  },
+  {
+    "name": "Chicken Popcorn",
+    "price": 60,
+    "icon": "🍗",
+    "category": "sides"
+  },
+  {
+    "name": "Mozzarella Sticks",
+    "price": 65,
+    "icon": "🧀",
+    "category": "sides"
+  },
+  {
+    "name": "Garlic Bread",
+    "price": 30,
+    "icon": "🥖",
+    "category": "sides"
+  },
+  {
+    "name": "Cheesy Garlic Bread",
+    "price": 40,
+    "icon": "🥖",
+    "category": "sides"
+  },
+  {
+    "name": "Nachos",
+    "price": 55,
+    "icon": "🧀",
+    "category": "sides"
+  },
+  {
+    "name": "Buttered Corn",
+    "price": 35,
+    "icon": "🌽",
+    "category": "sides"
+  },
+  {
+    "name": "Coleslaw",
+    "price": 30,
+    "icon": "🥗",
+    "category": "sides"
+  },
+  {
+    "name": "Garden Salad",
+    "price": 50,
+    "icon": "🥗",
+    "category": "sides"
+  },
+  {
+    "name": "Macaroni Salad",
+    "price": 40,
+    "icon": "🥗",
+    "category": "sides"
+  },
+  {
+    "name": "Steamed Rice",
+    "price": 20,
+    "icon": "🍚",
+    "category": "sides"
+  },
+  {
+    "name": "Garlic Rice",
+    "price": 25,
+    "icon": "🍚",
+    "category": "sides"
+  },
+  {
+    "name": "Fried Egg",
+    "price": 15,
+    "icon": "🍳",
+    "category": "sides"
+  },
+  {
+    "name": "Banana Muffin",
+    "price": 35,
+    "icon": "🧁",
+    "category": "sides"
+  },
+  {
+    "name": "Chocolate Chip Cookie",
+    "price": 25,
+    "icon": "🍪",
+    "category": "sides"
+  },
+  {
+    "name": "Chocolate Brownie",
+    "price": 40,
+    "icon": "🍫",
+    "category": "sides"
+  },
+  {
+    "name": "Cheese Cupcake",
+    "price": 30,
+    "icon": "🧁",
+    "category": "sides"
+  }
+]

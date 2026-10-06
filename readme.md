@@ -1,6 +1,6 @@
 # Coffee Bara POS Kiosk
 
-A touchscreen-friendly café POS built with HTML, CSS, and vanilla JavaScript. A small Node.js server serves the interface and saves completed transactions in a local SQLite database.
+A touchscreen-friendly café POS built with HTML, CSS, and vanilla JavaScript. Localhost uses Node.js and SQLite; GitHub Pages and other non-localhost static hosts use a browser-only demo with localStorage receipts. Both modes use the same screens and controls.
 
 ## Technology
 
@@ -52,7 +52,7 @@ npm start
 
 Open **http://localhost:3000/** in your browser. The application starts on the Welcome screen. Keep the terminal/server running while using the kiosk; press **Ctrl+C** in that terminal to stop it.
 
-Use the Node.js server rather than opening `index.html` directly or through Live Server. The interface needs the server's product and transaction API.
+On `localhost`, `127.0.0.1`, or IPv6 loopback (`[::1]`), use the Node.js server rather than Live Server: this mode requires the existing product and transaction API. Other hostnames use the static demo automatically. A local server accessed through a LAN hostname/IP also uses demo mode.
 
 To use another port in Windows PowerShell:
 
@@ -96,13 +96,19 @@ Prices are in Philippine pesos. The server looks up stored product prices and re
 
 Transaction references retain their existing **`CAFE-...`** format. Creation times use the server machine's local time.
 
-`db/menu.js` defines the starter menu. Startup inserts missing products, normalizes category values, and updates categories for matching product names. It preserves existing products and sales. **Changing a price in `db/menu.js` does not automatically update the price of an existing database product**; existing prices must be updated in the SQLite database separately.
+`js/data/menu.json` defines the shared starter menu and static demo menu; `db/menu.js` reads that same file for SQLite seeding. Startup inserts missing products, normalizes category values, and updates categories for matching product names. It preserves existing products and sales. **Changing a price in the shared menu does not automatically update the price of an existing database product**; existing prices must be updated in the SQLite database separately. Database-only product edits do not automatically publish to the static demo.
 
 The database and its companion files are excluded from Git by `db/cafe.db*`. A fresh checkout creates a fresh database unless an existing database is copied into `db`.
 
 ### Temporary data: browser memory
 
-`js/state.js` holds the current products, cart, payment method, and receipt in memory. The app does not save an unfinished cart to local storage. Refreshing or closing the page loses the unfinished order; completed transactions remain in SQLite.
+`js/state.js` holds the current products, cart, payment method, and receipt in memory. The app does not save an unfinished cart to local storage. Refreshing or closing the page loses the unfinished order; completed transactions remain in the mode's persistent storage.
+
+### GitHub Pages demo storage
+
+The static demo loads all 75 products from `js/data/menu.json` and makes no backend API requests. All three payment methods are demonstrations; no money is transferred. Completed receipt snapshots are stored in this browser's localStorage under `coffee-bara-demo-transactions`, independently of SQLite. References retain the `CAFE-...` format and timestamps use the browser's local time.
+
+New Transaction clears the current customer's order, payment, and receipt screens and returns to Welcome. Saved demo receipt history survives refreshes but is never loaded into the next customer's order. Browser storage must be enabled and have space; a failed save shows an error rather than reporting a successful payment. Clearing site data deletes demo receipts. Demo records are editable browser data and are not production sales records.
 
 ### Local assets
 
@@ -126,7 +132,7 @@ package-lock.json          Locked npm dependency versions
 db/
   database.js              Database initialization and menu seeding
   schema.sql               Products and transaction table definitions
-  menu.js                  Starter menu and category assignments
+  menu.js                  Reads the shared menu for SQLite seeding
   queries.js               Product lookup, validation, and sale persistence
   cafe.db                  Generated SQLite database
 index.html                 Main application shell
@@ -136,7 +142,9 @@ js/
   app.js                   Application startup
   router.js                Screen loading and navigation
   state.js                 Current order state and totals
-  api.js                   Requests to the local API
+  api.js                   Selects local API or static demo by hostname
+  demo.js                  Static menu adapter and localStorage receipts
+  data/menu.json           Shared starter/demo menu and category assignments
   payment.js               Shared payment completion
   screens/                 Individual screen behavior
 assets/                    Local images and fonts
@@ -158,9 +166,9 @@ The transaction request supplies `method` (`cash`, `qr`, or `card`), `paid`, and
 
 The frontend lives directly at the repository root. In GitHub **Settings → Pages**, choose **Deploy from a branch**, select **main**, and select **/ (root)**. The root `.nojekyll` file disables Jekyll processing. The project-page address is normally `https://<owner>.github.io/Coffee-Bara-POS/`.
 
-HTML assets, CSS fonts/images, screen fragments, JavaScript imports, and product images use relative paths so they resolve beneath the project-page prefix. API requests also resolve relative to the page's base address.
+HTML assets, CSS fonts/images, screen fragments, JavaScript imports, and product images use relative paths so they resolve beneath the project-page prefix. The demo menu URL resolves relative to its JavaScript module. Local-mode API requests resolve relative to the page's base address.
 
-**GitHub Pages hosts static files only. It does not run `server.js`, SQLite, or `/api/products` and `/api/transactions`.** This application's startup requires the products API; a Pages-only deployment will show the existing server-connection error rather than a working menu. The directory move does not introduce a static demo, duplicate product list, or replacement transaction storage. To run the complete POS, keep using `npm start`; a functional GitHub Pages frontend would need a separately hosted API and corresponding connection configuration.
+**GitHub Pages hosts static files only.** The frontend automatically uses static demo mode on the Pages hostname, so no Node.js server, npm installation, or SQLite is needed there. Deploy the root frontend including `js/data/menu.json`. Start Order, categories, search, cart, review, cash validation, QR/card simulation, success, receipts, and New Transaction work using local menu data and browser storage. Keep using `npm start` on localhost for SQLite-backed sales.
 
 Opening `index.html` means serving it over HTTP. Double-clicking it as a `file://` page cannot provide the backend and may block JavaScript modules or fetched screen fragments.
 
