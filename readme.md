@@ -74,6 +74,7 @@ After changing server/database JavaScript, stop and restart the server. After in
 **Welcome → Start Order → Item Selection → Order Summary → Payment Method → Payment → Payment Successful → Receipt → New Transaction → Welcome**
 
 - Categories and search filter the same existing product list.
+- Combos adds Coffee Break Combo (₱85), Bara Burger Combo (₱120), and Snack Combo (₱70). Each is one cart item with normal quantity, subtotal, checkout, and receipt handling; individual prices are unchanged.
 - Add to Order and quantity controls update the cart and totals.
 - Cash payment checks the entered amount and calculates change.
 - QR and card payments are **simulations**. Card processing includes a short simulated delay; neither method connects to a payment gateway or charges a real account.
@@ -106,7 +107,7 @@ The database and its companion files are excluded from Git by `db/cafe.db*`. A f
 
 ### GitHub Pages demo storage
 
-The static demo loads all 75 products from `js/data/menu.json` and makes no backend API requests. All three payment methods are demonstrations; no money is transferred. Completed receipt snapshots are stored in this browser's localStorage under `coffee-bara-demo-transactions`, independently of SQLite. References retain the `CAFE-...` format and timestamps use the browser's local time.
+The static demo loads all 78 products (75 individual items and three combos) from `js/data/menu.json` and makes no backend API requests. All three payment methods are demonstrations; no money is transferred. Completed receipt snapshots are stored in this browser's localStorage under `coffee-bara-demo-transactions`, independently of SQLite. References retain the `CAFE-...` format and timestamps use the browser's local time.
 
 New Transaction clears the current customer's order, payment, and receipt screens and returns to Welcome. Saved demo receipt history survives refreshes but is never loaded into the next customer's order. Browser storage must be enabled and have space; a failed save shows an error rather than reporting a successful payment. Clearing site data deletes demo receipts. Demo records are editable browser data and are not production sales records.
 

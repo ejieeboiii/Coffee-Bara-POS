@@ -448,5 +448,29 @@
     "price": 30,
     "icon": "🧁",
     "category": "sides"
+  },
+  {
+    "name": "Coffee Break Combo",
+    "price": 85,
+    "icon": "",
+    "category": "combos",
+    "description": "Iced Coffee + Sandwich",
+    "image": "assets/images/products/combos/coffee-break-combo.png"
+  },
+  {
+    "name": "Bara Burger Combo",
+    "price": 120,
+    "icon": "",
+    "category": "combos",
+    "description": "Burger + Fries + Soft Drink",
+    "image": "assets/images/products/combos/bara-burger-combo.png"
+  },
+  {
+    "name": "Snack Combo",
+    "price": 70,
+    "icon": "",
+    "category": "combos",
+    "description": "Fries + Soft Drink",
+    "image": "assets/images/products/combos/snack-combo.png"
   }
 ]

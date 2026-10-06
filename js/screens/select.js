@@ -8,9 +8,8 @@ let activeCategory = 'all';
 export function init() {
   // Older API responses omit categories; categorize the same existing objects.
   state.products.forEach((p) => {
-    p.image = `assets/images/products/${p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.png`;
     const category = (p.category || '').trim().toLowerCase();
-    if (['drinks', 'food', 'sides'].includes(category)) {
+    if (['drinks', 'food', 'sides', 'combos'].includes(category)) {
       p.category = category;
     } else if (/\b(coffee|drink|water|americano|latte|cappuccino|mocha|tea|lemonade|juice)\b|\bchocolate$/i.test(p.name)) {
       p.category = 'drinks';
@@ -19,6 +18,8 @@ export function init() {
     } else {
       p.category = 'sides';
     }
+    const imageFolder = p.category === 'combos' ? 'combos/' : '';
+    p.image ||= `assets/images/products/${imageFolder}${p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.png`;
   });
   $('screen-select').addEventListener('input', (e) => {
     if (e.target.matches('[data-menu-search]')) renderProducts();
@@ -83,7 +84,7 @@ function renderProducts() {
   $('product-grid').innerHTML = products.map((p) => `
     <button class="product-card" data-product="${p.id}">
       <span class="product-art"><img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async"></span>
-      <span class="product-info"><span class="name">${p.name}</span><span class="price">${peso(p.price)}</span>
+      <span class="product-info"><span class="name">${p.name}</span>${p.category === 'combos' ? `<span class="combo-description">${p.description}</span>` : ''}<span class="price">${peso(p.price)}</span>
       <span class="add-label"><span aria-hidden="true">+</span> Add to order</span></span>
     </button>`).join('');
   $('screen-select').querySelector('[data-empty-results]').hidden = products.length > 0;

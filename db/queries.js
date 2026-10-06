@@ -1,10 +1,14 @@
 // All SQL lives here. The server recalculates prices/totals from the database,
 // so the browser can never set its own prices.
 const db = require('./database');
+const menu = require('./menu');
 const round2 = (n) => Math.round(n * 100) / 100;
 
 function getProducts() {
-  return db.prepare('SELECT id, name, price, icon, category FROM products ORDER BY id').all();
+  return db.prepare('SELECT id, name, price, icon, category FROM products ORDER BY id').all().map((p) => {
+    const combo = p.category === 'combos' && menu.find((item) => item.name === p.name);
+    return combo ? { ...p, description: combo.description, image: combo.image } : p;
+  });
 }
 
 function newReference() {
