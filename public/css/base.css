@@ -23,7 +23,7 @@ button:focus-visible, input:focus-visible { outline: 4px solid var(--primary); o
 .sidebar-promo h2 { margin: 0 0 6px; color: var(--primary); font-size: clamp(.85rem, 1.25vw, 1rem); line-height: 1.4; letter-spacing: -.02em; }
 .sidebar-footer { display: flex; align-items: center; gap: 9px; margin-top: 0; padding: 14px 10px 4px; color: var(--muted); font-size: .84rem; }
 .status-dot { width: 8px; height: 8px; border-radius: 50%; background: #699a71; }
-.topbar { position: relative; margin-left: 244px; min-height: 82px; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 34px; background: rgba(255,255,255,.76); border-bottom: 1px solid rgba(40,43,42,.06); }
+.topbar { position: sticky; top: 0; z-index: 10; margin-left: 244px; min-height: 82px; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 34px; background: #f7f9f9; border-bottom: 1px solid rgba(40,43,42,.06); }
 .topbar h1 { margin: 0; font-size: 1.25rem; font-weight: 700; letter-spacing: -.025em; }
 .header-brand { display: flex; align-items: center; gap: 12px; }
 .header-logo { display: block; width: auto; height: 52px; object-fit: contain; }

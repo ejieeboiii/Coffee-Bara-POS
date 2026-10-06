@@ -24,7 +24,7 @@
 .add-label > span { font-size: 1.2rem; }
 .product-card:hover .add-label { border-color: var(--primary); background: var(--primary); color: #fff; }
 .empty-results { padding: 24px; border: 1px dashed #bacbc8; border-radius: 16px; color: var(--muted); text-align: center; }
-.panel { position: sticky; top: 20px; }
+.panel { position: sticky; top: 105px; } /* 85px header + existing 20px gap */
 .cart-heading { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 .cart-heading h2 { margin: 0; }
 .cart-badge { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 12px; background: var(--accent); color: var(--primary); font-weight: 800; }
