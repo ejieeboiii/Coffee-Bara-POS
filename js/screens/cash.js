@@ -14,14 +14,18 @@ export function enter() {
   $('cash-input').value = '';
   $('cash-change').textContent = peso(0);
   $('cash-error').textContent = '';
+  previewChange();
 }
 
 // Change = Amount Paid − Total (shown only when the amount is valid and enough)
 function previewChange() {
   const raw = $('cash-input').value.trim();
   const ok = AMOUNT.test(raw) && toCents(Number(raw)) >= toCents(total());
+  $('cash-pay').disabled = !ok;
   $('cash-change').textContent = peso(ok ? Number(raw) - total() : 0);
-  $('cash-error').textContent = '';
+  $('cash-error').textContent = AMOUNT.test(raw) && !ok
+    ? 'Insufficient payment. Please enter at least ' + peso(total()) + '.'
+    : '';
 }
 function fail(message) { $('cash-error').textContent = message; toast(message, 'error'); }
 
