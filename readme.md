@@ -175,7 +175,39 @@ Opening `index.html` means serving it over HTTP. Double-clicking it as a `file:/
 
 References: [GitHub Pages overview](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), [branch/root publishing setup](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
-## Troubleshooting
+## Vercel deployment
+
+Vercel uses `vercel.json` to build the frontend into `dist`, not to run `npm start`. The build copies only `index.html`, `assets`, `brand`, `css`, `js`, and `screens`, and generates the public starter-menu endpoint. Database files, backend source, dependencies, and development notes are excluded from the published static directory. No UI or frontend paths are changed.
+
+Use these project settings:
+
+| Setting | Value |
+| --- | --- |
+| Framework Preset | Other |
+| Root Directory | `.` (repository root containing `package.json`) |
+| Build Command | `npm run build:vercel` |
+| Output Directory | `dist` |
+| Install Command | `npm ci --ignore-scripts` |
+| Node.js Version | 24.x |
+| Environment variables | None for the demo |
+
+The Vercel-only install command skips native SQLite compilation because deployed functions do not use SQLite. For local development, continue using normal `npm ci` and `npm start`.
+
+The Vercel hostname uses the existing static demo mode: categories, combos, cart, cash validation, QR/card simulations, success, receipts, and reset work with browser localStorage. `GET /api/products` returns the 78 shared starter-menu products, with the same demo IDs. `POST /api/transactions` returns HTTP 503 with `PERSISTENT_DATABASE_REQUIRED`, explicitly refusing to claim that a production sale was saved. The demo UI does not call that endpoint. Other methods on that endpoint return 405.
+
+Localhost still uses the existing API and `db/cafe.db`; no local server or SQLite code has been removed. **Vercel's function filesystem is not durable shared SQLite storage.** Do not copy `cafe.db` into `/tmp` and treat it as persistent sales storage. Production requires a hosted database, a persistent implementation of `api/transactions.js`, and switching the Vercel frontend to that API. Provider credentials must stay in server-side Vercel environment variables; none are required or invented for this demo. See [Vercel's SQLite limitation](https://vercel.com/kb/guide/is-sqlite-supported-in-vercel).
+
+Push the deployment fix from the project folder:
+
+```powershell
+git add vercel.json package.json .gitignore scripts/build-vercel.cjs api/transactions.js readme.md
+git commit -m "Configure Coffee Bara POS for Vercel"
+git push origin main
+```
+
+Connect the GitHub repository in Vercel, select `main` as the production branch, apply the settings above, and redeploy. The existing GitHub Pages root layout is unchanged. Test `/`, `/api/products`, and `/api/transactions`; `/db/cafe.db` and backend source paths should return 404. Local build and route tests do not prove a live deployment; check these again after redeploying.
+
+## Local troubleshooting
 
 - **Cannot reach the server:** check that `npm start` is running and that you opened the correct localhost address.
 - **Port already in use / `EADDRINUSE`:** stop the previous kiosk server or use the alternate-port instructions above.
