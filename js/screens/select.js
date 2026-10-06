@@ -8,7 +8,7 @@ let activeCategory = 'all';
 export function init() {
   // Older API responses omit categories; categorize the same existing objects.
   state.products.forEach((p) => {
-    p.image = `/assets/images/products/${p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.png`;
+    p.image = `assets/images/products/${p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}.png`;
     const category = (p.category || '').trim().toLowerCase();
     if (['drinks', 'food', 'sides'].includes(category)) {
       p.category = category;

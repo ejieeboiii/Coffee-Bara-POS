@@ -1,8 +1,8 @@
-// Tiny HTTP server: JSON API for SQLite + static files from /public.
+// Tiny HTTP server: JSON API for SQLite + frontend files from the project root.
 const http = require('http'), fs = require('fs'), path = require('path');
 const { getProducts, createTransaction } = require('./db/queries');
 
-const PUBLIC = path.join(__dirname, 'public');
+const PUBLIC = __dirname;
 const PORT = process.env.PORT || 3000;
 const TYPES = { '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript', '.png': 'image/png' };
 
@@ -24,7 +24,9 @@ http.createServer(async (req, res) => {
     }
     const urlPath = decodeURIComponent(req.url.split('?')[0]);
     const file = path.join(PUBLIC, urlPath === '/' ? 'index.html' : urlPath);
-    if (!file.startsWith(PUBLIC) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
+    const relative = path.relative(PUBLIC, file);
+    const frontend = relative === 'index.html' || ['assets', 'brand', 'css', 'js', 'screens'].includes(relative.split(path.sep)[0]);
+    if (!frontend || relative.startsWith('..' + path.sep) || path.isAbsolute(relative) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) {
       res.writeHead(404); return res.end('Not found');
     }
     res.writeHead(200, { 'Content-Type': TYPES[path.extname(file)] || 'application/octet-stream' });

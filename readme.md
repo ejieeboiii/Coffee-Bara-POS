@@ -25,7 +25,7 @@ The only direct npm dependency is **`better-sqlite3`**, declared as `^13.0.3` an
 
 ## Setup
 
-1. Copy or clone the entire project, including `public`, `db`, `package.json`, and `package-lock.json`.
+1. Copy or clone the entire project, including `index.html`, `assets`, `css`, `js`, `screens`, `db`, `package.json`, and `package-lock.json`.
 2. Open a terminal in the project folder containing `package.json`.
 3. Check the installed tools:
 
@@ -52,7 +52,7 @@ npm start
 
 Open **http://localhost:3000/** in your browser. The application starts on the Welcome screen. Keep the terminal/server running while using the kiosk; press **Ctrl+C** in that terminal to stop it.
 
-Use the Node.js server rather than opening `public/index.html` directly or through Live Server. The interface needs the server's product and transaction API.
+Use the Node.js server rather than opening `index.html` directly or through Live Server. The interface needs the server's product and transaction API.
 
 To use another port in Windows PowerShell:
 
@@ -102,14 +102,14 @@ The database and its companion files are excluded from Git by `db/cafe.db*`. A f
 
 ### Temporary data: browser memory
 
-`public/js/state.js` holds the current products, cart, payment method, and receipt in memory. The app does not save an unfinished cart to local storage. Refreshing or closing the page loses the unfinished order; completed transactions remain in SQLite.
+`js/state.js` holds the current products, cart, payment method, and receipt in memory. The app does not save an unfinished cart to local storage. Refreshing or closing the page loses the unfinished order; completed transactions remain in SQLite.
 
 ### Local assets
 
-- `public/assets/images/products/`: menu photographs.
-- `public/assets/images/payments/`: Cash, QR Payment, and Card Payment images.
-- `public/assets/images/`: active Coffee Bara logo and mascot assets, plus the welcome hero image.
-- `public/assets/fonts/`: Poppins font files and their license.
+- `assets/images/products/`: menu photographs.
+- `assets/images/payments/`: Cash, QR Payment, and Card Payment images.
+- `assets/images/`: active Coffee Bara logo and mascot assets, plus the welcome hero image.
+- `assets/fonts/`: Poppins font files and their license.
 
 Once dependencies are installed, the local kiosk can run without internet access. Simulated payments still require the local Node.js server to save transactions.
 
@@ -129,18 +129,19 @@ db/
   menu.js                  Starter menu and category assignments
   queries.js               Product lookup, validation, and sale persistence
   cafe.db                  Generated SQLite database
-public/
-  index.html               Main application shell
-  screens/                 Screen HTML fragments
-  css/                     Stylesheets
-  js/
-    app.js                 Application startup
-    router.js              Screen loading and navigation
-    state.js               Current order state and totals
-    api.js                 Requests to the local API
-    payment.js             Shared payment completion
-    screens/               Individual screen behavior
-  assets/                  Local images and fonts
+index.html                 Main application shell
+screens/                   Screen HTML fragments
+css/                       Stylesheets
+js/
+  app.js                   Application startup
+  router.js                Screen loading and navigation
+  state.js                 Current order state and totals
+  api.js                   Requests to the local API
+  payment.js               Shared payment completion
+  screens/                 Individual screen behavior
+assets/                    Local images and fonts
+brand/                     Additional branding assets/pages, if present
+.nojekyll                  Serves the plain frontend without a Jekyll build
 tmp/                       Development previews and supporting notes
 ```
 
@@ -153,11 +154,23 @@ tmp/                       Development previews and supporting notes
 
 The transaction request supplies `method` (`cash`, `qr`, or `card`), `paid`, and `items` containing product IDs and quantities. The server determines prices from the database.
 
+## GitHub Pages directory layout
+
+The frontend lives directly at the repository root. In GitHub **Settings → Pages**, choose **Deploy from a branch**, select **main**, and select **/ (root)**. The root `.nojekyll` file disables Jekyll processing. The project-page address is normally `https://<owner>.github.io/Coffee-Bara-POS/`.
+
+HTML assets, CSS fonts/images, screen fragments, JavaScript imports, and product images use relative paths so they resolve beneath the project-page prefix. API requests also resolve relative to the page's base address.
+
+**GitHub Pages hosts static files only. It does not run `server.js`, SQLite, or `/api/products` and `/api/transactions`.** This application's startup requires the products API; a Pages-only deployment will show the existing server-connection error rather than a working menu. The directory move does not introduce a static demo, duplicate product list, or replacement transaction storage. To run the complete POS, keep using `npm start`; a functional GitHub Pages frontend would need a separately hosted API and corresponding connection configuration.
+
+Opening `index.html` means serving it over HTTP. Double-clicking it as a `file://` page cannot provide the backend and may block JavaScript modules or fetched screen fragments.
+
+References: [GitHub Pages overview](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), [branch/root publishing setup](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+
 ## Troubleshooting
 
 - **Cannot reach the server:** check that `npm start` is running and that you opened the correct localhost address.
 - **Port already in use / `EADDRINUSE`:** stop the previous kiosk server or use the alternate-port instructions above.
-- **Missing CSS, JavaScript, or images:** open the Node.js server address, keep the full `public/assets` folder, and refresh with Ctrl+F5.
+- **Missing CSS, JavaScript, or images:** open the Node.js server address, keep the full `assets` folder, and refresh with Ctrl+F5.
 - **`better-sqlite3` installation or native-module errors:** confirm Node.js is version 22 or newer and rerun `npm ci` on the target machine instead of copying `node_modules` from another computer. If installation reports missing native build tools, follow that error's platform-specific requirements.
 - **Database cannot be opened:** confirm the `db` directory exists and is writable.
 - **Menu edits do not appear:** restart the server; for existing product prices, check the stored SQLite values as explained above.
